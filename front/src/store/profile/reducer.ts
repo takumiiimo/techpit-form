@@ -3,6 +3,7 @@ import { Profile } from "../../domain/entity/profile";
 import profileActions from "./actions";
 import { Career } from "../../domain/entity/career";
 
+
 const init: Profile = {
     name: "",
     description: "",
@@ -14,7 +15,12 @@ const init: Profile = {
         city: "",
         restAddress: "",
     },
-    careers: []
+    careers: [],
+    college: {
+        name: "",
+        faculty: "",
+        department: ""
+    }
 };
 const initCareer: Career = {
     company: "",
@@ -56,6 +62,10 @@ const profileReducer = reducerWithInitialState(init).case(
         ...state,
         careers: [...state.careers, initCareer]
     }))
+    .case(profileActions.setCollege, (state, payload) => ({
+        ...state,
+        college: { ...state.college, ...payload }
+    }));
 
 
 export default profileReducer;
