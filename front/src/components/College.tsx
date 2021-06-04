@@ -23,7 +23,7 @@ const College = () => {
             <TextField
                 className={classes.formField}
                 fullWidth
-                label="大学名を検索"
+                label="大学名"
                 value={colleges.search}
                 onChange={e => handleChange(e.target.value)}
             />
